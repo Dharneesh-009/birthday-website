@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday 🎉</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero">
+        <h1 id="birthday-text">Happy Birthday, Bhavanii 🎂</h1>
+        <button onclick="startCelebration()">Click for Surprise</button>
+    </div>
+
+    <section class="gallery">
+        <h2>Our Memories</h2>
+        <div class="slideshow">
+            <img id="slideshow-img" src="assets/images/image1.jpg" alt="Memory">
+        </div>
+    </section>
+
+    <section class="video-message">
+        <h2>A Special Message for You 💖</h2>
+        <video controls>
+            <source src="assets/videos/message.mp4" type="video/mp4">
+        </video>
+    </section>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Dear Bhavanii,</h2>
+            <p>On this special day, I just want to remind you how amazing you are! May your year be filled with happiness, love, and endless joy. You are truly one of a kind! 🎂🎁💖</p>
+        </div>
+    </div>
+
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
