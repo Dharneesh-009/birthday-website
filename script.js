@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     let images = ["assets/images/image1.jpg", "assets/images/image2.jpg", "assets/images/image3.jpg"];
     let index = 0;
     setInterval(() => {
@@ -7,11 +7,20 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 3000);
 });
 
-function startCelebration() {
+/*function startCelebration() {
     launchConfetti();
     document.getElementById("popup").style.display = "block";
+    //revealMemories(); // 🔥 Reveal the gallery after confetti and popup
 }
+*/
 
+function startCelebration() {
+    document.getElementById("popup").style.display = "block";
+    launchConfetti();
+
+    // Delay the gallery reveal by 3 seconds
+    setTimeout(revealMemories, 3000);
+}
 function closePopup() {
     document.getElementById("popup").style.display = "none";
 }
@@ -51,3 +60,20 @@ function launchConfetti() {
 
     setInterval(draw, 30);
 }
+
+function revealMemories() {
+    const gallery = document.getElementById('gallery');
+    const images = gallery.querySelectorAll('.gallery-img');
+
+    gallery.classList.remove('hidden');
+    gallery.classList.add('reveal');
+
+    images.forEach((img, index) => {
+        setTimeout(() => {
+            img.classList.add('show');
+        }, index * 200);
+    });
+
+    gallery.scrollIntoView({ behavior: "smooth" });
+}
+

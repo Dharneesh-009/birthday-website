@@ -1,41 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Happy Birthday 🎉</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.min.js"></script>
+
 </head>
 <body>
+
+    <!-- Hero Section -->
     <div class="hero">
         <h1 id="birthday-text">Happy Birthday, Bhavanii 🎂</h1>
-        <button onclick="startCelebration()">Click for Surprise</button>
+        <button onclick="startCelebration()"><span>Click for Surprise</span></button>
+        <button onclick="startCelebration()"><span>Reveal Memories</span></button>
+
     </div>
 
-    <section class="gallery">
-        <h2>Our Memories</h2>
-        <div class="slideshow">
-            <img id="slideshow-img" src="assets/images/image1.jpg" alt="Memory">
-        </div>
-    </section>
-
-    <section class="video-message">
-        <h2>A Special Message for You 💖</h2>
-        <video controls>
-            <source src="assets/videos/message.mp4" type="video/mp4">
-        </video>
-    </section>
-
+    <!-- Surprise Message -->
     <div id="popup" class="popup">
         <div class="popup-content">
             <span class="close" onclick="closePopup()">&times;</span>
-            <h2>Dear Bhavanii,</h2>
-            <p>On this special day, I just want to remind you how amazing you are! May your year be filled with happiness, love, and endless joy. You are truly one of a kind! 🎂🎁💖</p>
+            <h2> Bhavanii</h2>
+            <p>
+                , just wanted to wish you a very happy birthday! 😊<br><br>
+            
+                You’re such a thoughtful person, and the books you gave me honestly meant a lot—they're super valuable, and I’ll always remember that. 📚<br><br>
+            
+                Hope your day is full of smiles, good vibes, and everything you love. You deserve nothing less. 🎂🎁<br><br>
+            
+                Have the best year ahead!
+            </p>
+            
         </div>
     </div>
 
+    <!-- Photos Section -->
+    <section class="gallery hidden" id="gallery">
+        <h2 style="text-align: center;">✨ Beautiful Memories ✨</h2>
+    
+        <!-- Section 1 -->
+        <div class="photo-section">
+            <h3>📸 Happy Times</h3>
+            <div class="photo-grid">
+
+                <img class="gallery-img" src="./images/Background.jpeg" alt="Memory 1" />
+                <img class="gallery-img" src="./images/image 7.jpeg" alt="Memory 2" />
+                <img class="gallery-img" src="./images/image 8.jpeg" alt="Memory 3" />
+                <img class="gallery-img" src="./images/image 9.jpeg" alt="Memory 4" />
+            </div>
+        </div>
+    
+        <!-- Section 2 -->
+        <div class="photo-section">
+            <h3>💖 Iconic Smile</h3>
+            <div class="photo-grid">
+                <img class="gallery-img" src="./images/image 1.jpeg" alt="Memory 5" />
+                <img class="gallery-img" src="./images/image 2.jpeg" alt="Memory 6" />
+                <img class="gallery-img" src="./images/image 4.jpeg" alt="Memory 7" />
+                <img class="gallery-img" src="./images/Cute - Copy.jpeg" alt="Memory 8" />
+            </div>
+        </div>
+    </section>
+    
+
+  
+    <section class="video-section hidden" id="video-section">
+        <h2>  </h2>
+        <video controls>
+            <source src="assets/videos/message.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+  
     <canvas id="confetti-canvas"></canvas>
 
     <script src="script.js"></script>
 </body>
 </html>
+

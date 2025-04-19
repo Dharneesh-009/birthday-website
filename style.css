@@ -1,5 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
+    background-image: url('./imageS.jpg');
     text-align: center;
     background-color: #1a1a2e;
     color: white;
@@ -23,17 +24,53 @@ h1 {
 }
 
 button {
-    padding: 15px 30px;
+    padding: 10px 30px;
     font-size: 1.2rem;
     background-color: #ff4757;
     color: white;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
 }
 
 button:hover {
-    background-color: #ff6b81;
+    background-color: #e84118;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional ripple effect */
+button::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+button:active::after {
+    transform: translate(-50%, -50%) scale(1);
+    transition: 0s;
+}
+
+button span {
+    position: relative;
+    z-index: 1;
 }
 
 .slideshow img {
@@ -47,8 +84,8 @@ button:hover {
 .popup {
     display: none;
     position: fixed;
-    top: 50%;
-    left: 50%;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
     transform: translate(-50%, -50%);
     background: #fff;
     padding: 20px;
@@ -63,8 +100,8 @@ button:hover {
 
 .close {
     position: absolute;
-    top: 10px;
-    right: 20px;
+    inset-block-start: 10px;
+    inset-inline-end: 20px;
     cursor: pointer;
     font-size: 1.5rem;
     color: #ff4757;
@@ -72,9 +109,56 @@ button:hover {
 
 canvas {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inline-size: 100vw;
+    block-size: 100vh;
     pointer-events: none;
+}
+/* Initially hidden with opacity */
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    pointer-events: none;
+}
+
+/* When revealed */
+.reveal {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+    transition: all 0.8s ease;
+}
+
+/* Animate each image inside the gallery */
+.photo-grid img {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.6s ease;
+}
+
+.photo-grid img.show {
+    opacity: 1;
+    transform: scale(1);
+}
+#popup {
+    z-index: 9999;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.gallery {
+    z-index: 1;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+}
+
+.gallery.reveal {
+    opacity: 1;
 }
